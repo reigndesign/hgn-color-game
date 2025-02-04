@@ -32,7 +32,6 @@ body {
 
 .wrapper {
     background: #fff;
-    width: 600px;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(217, 208, 208, 0.2);
 }
@@ -77,6 +76,9 @@ body {
     left: 0;
     height: 6px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     bottom: -4px;
     background: radial-gradient(circle, transparent, transparent 50%, #fff 50%, #fff 100%) 0px 1px / .7rem .7rem repeat-x;
 }
@@ -251,17 +253,21 @@ body {
 
 /* Small tablet to big tablet: from 768px to 1023px */
 @media only screen and (max-width: 1023px) {
-    
+    .footer {
+        margin-top: 65rem;
+ 
+ }
 }
 
 
 
 /* Small phones to small tablets: from 481px to 767px */
 @media only screen and (max-width: 767px) {
+
     .container {
-        width: 100%;
+        width: 300px;
         margin-top: 90px;
-        height: calc(100vh - 50px);
+        height: calc(80vh - 50px);
     }
 
     .wrapper {
@@ -276,15 +282,13 @@ body {
 }
 /* Small phones: from 0 to 480px */
 @media only screen and (max-width: 480px) {
-
-    .container {
-        width: 100%;
-        margin-top: 90px;
-        height: calc(100vh - 50px);
-    }
-
     .wrapper {
         margin-top: 40%;
+    }
+    .container {
+        width: 300px;
+        margin-top: 90px;
+        height: calc(80vh - 50px);
     }
 
     .footer {
