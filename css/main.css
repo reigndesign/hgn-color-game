@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* ******** */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100%;
+    background: #0039FF;
+    padding-bottom: 50px;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: calc(80vh - 50px);
+    margin-top: 90px;
+}
+
+.wrapper {
+    background: #fff;
+    width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(217, 208, 208, 0.2);
+}
+
+.footer {
+    height: 55px;
+    background: #011455;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 18px;
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    margin-top: 42.625rem;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.container .game--instruction {
+    position: absolute;
+    max-width: 700px;
+    width: 100%;
+    height: 7rem;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+}
+
+.container .game--instruction::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    bottom: -4px;
+    background: radial-gradient(circle, transparent, transparent 50%, #fff 50%, #fff 100%) 0px 1px / .7rem .7rem repeat-x;
+}
+
+.game--instruction .text--instruction h2 {
+    font-size: 22px;
+    font-weight: 500;
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #000;
+}
+
+.game--instruction .text--instruction p {
+    font-size: 12px;
+    font-weight: 300;
+    text-align: center;
+    color: #000;
+}
+
+.game--content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game--content h1 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #000;
+    padding-top: 20px;
+}
+
+.game {
+    font-size: 20px;
+    margin: 20px 0px;
+    padding: 20px 0px;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    width: 500px;
+    text-align: center;
+}
+
+.game .game--header {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+}
+
+.game--header span {
+    font-weight: bold;
+}
+
+.game--body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 50px;
+}
+
+.game--body span {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.75);
+    /* box-shadow: 0 0 8px 0 rgba(0, 0, 0), 0.2); */
+    transition: background 0.8s ease, transform 1s ease, box-shadow 1s ease;
+}
+
+.game--body span.correct:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    content: "";
+    background-color: rgba(#fff, 0.5);
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ef/Thumbs_up_font_awesome.svg');
+    background-size: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    transform: scale(0.5);
+    opacity: 0;
+    transition: 400ms ease;
+
+}
+
+.game--body span.correct.chosen:before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.game--body span:hover {
+    transition: background 0.8s ease, transform 1s ease, box-shadow 1s ease;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
+    transform: scale(1.1);
+}
+
+.popup {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    transition: all 700ms ease;
+    opacity: 0;
+    pointer-events: none;
+    perspective: 800;
+  }
+  .popup.game-finished {
+    opacity: 1;
+    pointer-events: all;
+    transition: all 700ms ease;
+  }
+  .popup.game-finished .game--over {
+    transform: rotateX(0deg) scale(1) translateY(0px);
+    opacity: 1;
+    transition: all 700ms 200ms ease;
+  }
+  .popup .game--over {
+    background: #0039FF;
+    padding: 20px 40px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
+    transform: rotateX(90deg) scale(0.5) translateY(-50px);
+    transition: all 400ms 0ms ease;
+    opacity: 0;
+  }
+  .popup .game--over h2 {
+    font-size: 40px;
+  }
+  .popup .game--over p {
+    font-size: 30px;
+    margin-top: 5px;
+  }
+  .popup .game--over .restart-game {
+    color: #fff;
+    margin-top: 20px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.5);
+    color: #000;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: all 300ms ease;
+    font-size: 20px;
+    border-radius: 3px;
+  }
+  .popup .game--over .restart-game:hover {
+    background: #fff;
+  }/*# sourceMappingURL=style.css.map */
+
+
+/* Media Querries */
+
+  /* Big tablet to 1200px (widths smaller that the 1140px row) */
+@media only screen and (max-width: 1200px) {
+   
+}
+
+
+/* Small tablet to big tablet: from 768px to 1023px */
+@media only screen and (max-width: 1023px) {
+    
+}
+
+
+
+/* Small phones to small tablets: from 481px to 767px */
+@media only screen and (max-width: 767px) {
+    
+}
+/* Small phones: from 0 to 480px */
+@media only screen and (max-width: 480px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+
+        margin-top: 90px;
+        height: calc(60vh - 50px);
+    }
+
+    .wrapper {
+        margin-top: 50%;
+    }
+
+    .footer {
+        margin-top: 72.925rem;
+    }
+
+}

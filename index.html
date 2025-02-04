@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Games - HNG Training</title>
+    <!-- Font Awesome Pro CSS -->
+    <!-- <link rel="stylesheet" href="https://atugatran.github.io/FontAwesome6Pro/css/all.min.css"/> -->
+    <script src="https://use.fontawesome.com/releases/v6.4.2/js/all.js"></script>
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- CUSTOM JavaScript -->
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+     <script type="text/javascript" src="./js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="game--instruction" data-testid="gameInstructions">
+            <div class="text--instruction">
+                <h2>How to play the game</h2>
+            <p>Select any color that matches the rgb color code<br> you get (1 point) if you guess the correct color</p>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="game--content">
+                <div class="headline">
+                    <h1>Welcome to Color Guessing Game😊</h1>
+                </div>
+                <div class="game">
+                    <div class="game--header" data-testid="colorBox">
+                        Guess what the correct color of &nbsp;<span>rgb(<span class="color-val">x</span>,<span class="color-val">x</span>,<span class="color-val">x</span>)</span> is
+                    </div>
+                    <div class="game--body" data-testid="colorOption">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="popup" data-testid="gameStatus">
+                        <div class="game--over">
+                            <h2>Game Over ☹️</h2>
+                            <p data-testid="score">Your sccore is: <span class="game-score">0</span> </p>
+                            <a data-testid="newGameButton" href="javascript:;" class="restart-game">Resart Game</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">Made With ❤️ Follow me on &nbsp;<a href="https://x.com/igbengoos"><i class="fa-brands fa-x-twitter"></i></a></div>
+    </div>
+</body>
+</html>
